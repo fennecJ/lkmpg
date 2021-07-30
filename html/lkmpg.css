@@ -184,6 +184,8 @@ pre.fancyvrb {white-space: pre-wrap; margin:0em;font-family:monospace,monospace;
 .framedenv{border: 1px solid black;}
 * :not(img) { max-width: 100%; width: 50vw; height: auto; margin: 0 auto; }
 *{ font-size:1em; }
+.ecrm-0500{ font-size:70%; font-style: italic; color:gray; -webkit-user-select:none; -moz-user-select:none; -o-user-select:none; user-select:none; }
+.ecrm-0500:after{ content:" "; white-space: pre; -webkit-user-select:none; -moz-user-select:none; -o-user-select:none; user-select:none; }
 div#colorbox1{background-color:rgb(216,216,216);}
 div#colorbox2{background-color:rgb(216,216,216);}
 pre#fancyvrb1{padding:5.69054pt;}
