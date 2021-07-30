@@ -5,6 +5,8 @@ all: lkmpg.tex
 	pdflatex -shell-escape $< 2>/dev/null >/dev/null
 
 html: lkmpg.tex
+
+html: 
 	make4ht -suf html5 -c config.cfg -d html lkmpg.tex
 
 clean:
@@ -12,3 +14,5 @@ clean:
 	rm -rf _minted-lkmpg
 	rm -f *.xref *.svg *.tmp *.html *.css *.4ct *.4tc *.dvi *.lg *.idv
 	rm -rf  html
+
+.PHONY: html
