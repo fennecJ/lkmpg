@@ -7,7 +7,7 @@ all: lkmpg.tex
 html: lkmpg.tex
 
 html: 
-	make4ht -suf html5 -c config.cfg -d html lkmpg.tex
+	make4ht -suf html5 -c html.cfg -d html lkmpg.tex
 
 clean:
 	rm -f *.dvi *.aux *.log *.ps *.pdf *.out lkmpg.bbl lkmpg.blg lkmpg.lof lkmpg.toc 
