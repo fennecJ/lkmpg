@@ -5,9 +5,7 @@ all: lkmpg.tex
 	pdflatex -shell-escape $< 2>/dev/null >/dev/null
 
 html: lkmpg.tex
-
-html: 
-	make4ht -suf html5 -c html.cfg -d html lkmpg.tex
+	make4ht --shell-escape --utf8 --format html5 --config html.cfg --output-dir html lkmpg.tex
 
 clean:
 	rm -f *.dvi *.aux *.log *.ps *.pdf *.out lkmpg.bbl lkmpg.blg lkmpg.lof lkmpg.toc 
