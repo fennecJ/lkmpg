@@ -175,7 +175,7 @@ div.author { white-space: normal; }
 img.math { height: 1rem; vertical-align: top; }
 pre.fancyvrb { white-space: none; }
 figure, .fancyvrb, .verbatim { margin-inline: 0; overflow-x: auto; }
-.ecrm-0500 { font-size: 70%; font-style: italic; color: gray; width: 1.5rem; display: inline-block; -webkit-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none; }
+.ecrm-0500 { font-size: 70%; font-style: italic; color: gray; width: 1.5rem; display: inline-table; -webkit-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none; }
 pre#fancyvrb1{padding:5.69054pt;}
 pre#fancyvrb1{ border-top: solid 0.4pt; }
 pre#fancyvrb1{ border-left: solid 0.4pt; }
