@@ -174,7 +174,7 @@ body { max-width: 50rem; box-sizing: border-box; padding: 1rem; margin: 0 auto; 
 div.author { white-space: normal; }
 img.math { height: 1rem; vertical-align: top; }
 pre.fancyvrb, { white-space: pre; }
-figure, .fancyvrb, .verbatim { margin-inline: 0; overflow-x: auto; }
+figure, .fancyvrb, .verbatim { margin-inline: 0; overflow-x: auto; -webkit-user-select: all; -webkit-touch-callout: all; -khtml-user-select: all; -moz-user-select: all; -o-user-select: all; -ms-user-select: all; user-select: all; }
 .ecrm-0500 { font-size: 70%; font-style: italic; color: gray; width: 1.5rem; display: inline-block; -webkit-user-select: none; -webkit-touch-callout: none; -khtml-user-select: none; -moz-user-select: none; -o-user-select: none; -ms-user-select: none; user-select: none; }
 .flushright:first-child { position: absolute; top: 10px; right: 50px; }
 pre#fancyvrb1{padding:5.69054pt;}
