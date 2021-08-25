@@ -20,7 +20,7 @@
 
 <h2 class='titleHead'>The Linux Kernel Module Programming Guide</h2>
 <div class='author'><span class='ecrm-1200'>Peter Jay Salzman, Michael Burian, Ori Pomerantz, Bob Mottram, Jim Huang</span></div><br />
-<div class='date'><span class='ecrm-1200'>August 23, 2021</span></div>
+<div class='date'><span class='ecrm-1200'>August 25, 2021</span></div>
                                                                   
 
                                                                   
@@ -4529,7 +4529,7 @@ when an interrupt is triggered.
 <a id='x1-58052r26'></a><span class='ecrm-0500'>26</span><span id='textcolor2334'><span class='ectt-0800'>/* Define GPIOs for LEDs.</span></span> 
 <a id='x1-58054r27'></a><span class='ecrm-0500'>27</span><span id='textcolor2335'><span class='ectt-0800'> * TODO: Change the numbers for the GPIO on your board.</span></span> 
 <a id='x1-58056r28'></a><span class='ecrm-0500'>28</span><span id='textcolor2336'><span class='ectt-0800'> */</span></span> 
-<a id='x1-58058r29'></a><span class='ecrm-0500'>29</span><span id='textcolor2337'><span class='ectt-0800'>static</span></span><span class='ectt-0800'> </span><span id='textcolor2338'><span class='ectt-0800'>struct</span></span><span class='ectt-0800'> gpio leds[] = {{4, GPIOF_OUT_INIT_LOW, </span><span id='textcolor2339'><span class='ectt-0800'>"LED 1"</span></span><span class='ectt-0800'>}};</span> 
+<a id='x1-58058r29'></a><span class='ecrm-0500'>29</span><span id='textcolor2337'><span class='ectt-0800'>static</span></span><span class='ectt-0800'> </span><span id='textcolor2338'><span class='ectt-0800'>struct</span></span><span class='ectt-0800'> gpio leds[] = {{4, GPIOF_OUT_INIT_LOW , </span><span id='textcolor2339'><span class='ectt-0800'>"LED 1"</span></span><span class='ectt-0800'>  }};</span> 
 <a id='x1-58060r30'></a><span class='ecrm-0500'>30</span> 
 <a id='x1-58062r31'></a><span class='ecrm-0500'>31</span><span id='textcolor2340'><span class='ectt-0800'>/* Define GPIOs for BUTTONS</span></span> 
 <a id='x1-58064r32'></a><span class='ecrm-0500'>32</span><span id='textcolor2341'><span class='ectt-0800'> * TODO: Change the numbers for the GPIO on your board.</span></span> 
@@ -4551,7 +4551,7 @@ when an interrupt is triggered.
 <a id='x1-58096r48'></a><span class='ecrm-0500'>48</span><span class='ectt-0800'>DECLARE_TASKLET_OLD(buttontask, bottomhalf_tasklet_fn);</span> 
 <a id='x1-58098r49'></a><span class='ecrm-0500'>49</span> 
 <a id='x1-58100r50'></a><span class='ecrm-0500'>50</span><span id='textcolor2359'><span class='ectt-0800'>/* interrupt function triggered when a button is pressed */</span></span> 
-<a id='x1-58102r51'></a><span class='ecrm-0500'>51</span><span id='textcolor2360'><span class='ectt-0800'>static</span></span><span class='ectt-0800'> irqreturn_t button_isr(</span><span id='textcolor2361'><span class='ectt-0800'>int</span></span><span class='ectt-0800'> irq, </span><span id='textcolor2362'><span class='ectt-0800'>void</span></span><span class='ectt-0800'> *data)</span> 
+<a id='x1-58102r51'></a><span class='ecrm-0500'>51</span><span id='textcolor2360'><span class='ectt-0800'>static</span></span><span class='ectt-0800'> irqreturn_t button_isr(</span><span id='textcolor2361'><span class='ectt-0800'>int</span></span><span class='ectt-0800'> irq, </span><span id='textcolor2362'><span class='ectt-0800'>void</span></span><span class='ectt-0800'>*data)</span> 
 <a id='x1-58104r52'></a><span class='ecrm-0500'>52</span><span class='ectt-0800'>{</span> 
 <a id='x1-58106r53'></a><span class='ecrm-0500'>53</span><span class='ectt-0800'>    </span><span id='textcolor2363'><span class='ectt-0800'>/* Do something quickly right now */</span></span> 
 <a id='x1-58108r54'></a><span class='ecrm-0500'>54</span><span class='ectt-0800'>    </span><span id='textcolor2364'><span class='ectt-0800'>if</span></span><span class='ectt-0800'> (irq == button_irqs[0] &amp;&amp; !gpio_get_value(leds[0].gpio))</span> 
