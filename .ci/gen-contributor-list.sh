@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-FORMAT="%an,%>|(20) % %% <%ae>"
+FORMAT="%aN,%>|(20) % %% <%aE>"
 TARGET="../examples ../lkmpg.tex"
 
-gen-list(){
-    git log --pretty="$FORMAT" $TARGET | sort -u
+function gen-list()
+{
+    git log --pretty="$FORMAT" $TARGET | sort -u | sed -E '$s/,/\./'
 }
 
 gen-list
