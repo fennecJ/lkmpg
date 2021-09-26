@@ -2,6 +2,7 @@ PROJ = lkmpg
 all: $(PROJ).pdf
 
 $(PROJ).pdf: lkmpg.tex
+	.ci/gen-contributor-list.sh
 	pdflatex -shell-escap $<
 	bibtex $(PROJ) >/dev/null || echo
 	pdflatex -shell-escape $< 2>/dev/null >/dev/null
