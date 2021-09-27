@@ -4,7 +4,7 @@ TARGET="examples lkmpg.tex"
 
 function gen-list()
 {
-    git log --pretty="$FORMAT" $TARGET | sort -u | sed -E '$s/,/\./'
+    git log --pretty="$FORMAT" $TARGET | sort -fu | sed -E '$s/,/\./'
 }
 
 gen-list > lib/contrib.tex
