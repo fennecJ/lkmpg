@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-FORMAT="%aN,%>|(30) % %% <%aE>"      #Name,[left align 30 chars] % <Email> //Capital in aN and aE means replace str in .mailmap
+FORMAT="%aN,<%aE>"      #Name,[left align 30 chars] % <Email> //Capital in aN and aE means replace str in .mailmap
 TARGET=(examples lkmpg.tex)
 DIR=`git rev-parse --show-toplevel`  #Get root dir of the repo
 TARGET=("${TARGET[@]/#/$DIR/}")      #Concat $DIR BEFORE ALL elements in array TARGET
@@ -20,7 +20,7 @@ function parse-list()
         MainMail=`echo "$line" | awk -F "[<*>]" '{print $2}'`
         Emails=(`cat $DIR/.mailmap | grep "$User" | awk -F "[<*>]" '{print $4}' | sort -u`)
         for Email in ${Emails[@]}; do
-            if [[ "<$Email>" != "$MainMail" ]]; then
+            if [[ "$Email" != "$MainMail" ]]; then
                 line="$line,<$Email>";
             fi
         done
@@ -40,8 +40,11 @@ function sort-list()
 
 function gen-tex-file()
 {
-    list=`cat Contributors | awk -F "," '{printf("%-20s %% %s\n",$1",",$2)}'`;
-    echo "$list" | sed -E '$s/,/\./'
+    #list=`cat Contributors | awk -F "," '{printf("%-20s %% %s\n",$1",",$2)}'`;
+    #echo "$list" | sed -E '$s/,/\./'
+    `cat Contributors | awk -F "," '{printf("%-30s %% %s\n",$1",",$2)}' > tmpFile`
+    cat tmpFile | sed -E '$s/,/\./'
+    rm -f tmpFile
 }
 
 parse-list
