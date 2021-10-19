@@ -42,11 +42,18 @@ function gen-tex-file()
 {
     #list=`cat Contributors | awk -F "," '{printf("%-20s %% %s\n",$1",",$2)}'`;
     #echo "$list" | sed -E '$s/,/\./'
-    `cat Contributors | awk -F "," '{printf("%-30s %% %s\n",$1",",$2)}' > tmpFile`
-    cat tmpFile | sed -E '$s/,/\./'
-    rm -f tmpFile
+    cat Contributors | awk -F "," '
+         BEGIN{k=0}{n[k]=$1;e[k++]=$2}
+         END{
+            for(i=0;i<k;i++){
+                n[i]=(i<k-1)?n[i]",":n[i]".";
+                printf("%-30s %% %s\n",n[i],e[i]);
+                }
+            }
+        '
 }
 
 parse-list
 sort-list
+gen-tex-file
 gen-tex-file > $DIR/lib/contrib.tex
